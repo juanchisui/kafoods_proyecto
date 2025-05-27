@@ -1,0 +1,564 @@
+/*VARIABLES*/
+:root{
+    --fuentePrincipal: "Montserrat", sans-serif;
+    --morado: #74009A;
+    --moradoClaro:#F8EBFD;
+    --moradoOscuro: #52016C;
+    --negro: #000000;
+    --gris: #DDDADA;
+    --rojo:#FF0A0A;
+    --verde: #00942C;
+    --amarillo: #FFC403;
+    --blanco:#ffffff;
+
+
+}
+
+
+
+
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+   
+}
+
+
+html,body{
+    height: 100%;
+   
+}
+
+
+/*GLOBALES*/
+
+
+.contenedor{
+    max-width: 144rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
+h1,h2,h3{
+    font-family: var(--fuentePrincipal);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+h3,h2,h1{
+    padding: 0;
+    margin: 0;
+}
+
+
+/*LOGIN*/
+
+
+@media (min-width: 768px ) {
+    .main {
+        background-image: linear-gradient(to right, transparent 50%, #ffffff 50%, #ffffff 100%),
+        url('img/unsplash_guXX_Wm-wnY.jpg');
+        background-repeat: no-repeat;
+        background-size:auto;
+        height: 100%;
+       
+    }
+
+
+    .main-contenedor {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        justify-items: center;
+        align-items: center;
+    }
+
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+   
+ 
+
+
+}
+@media (max-width: 767px) {
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+
+    .main-contenedor {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+    }
+}
+
+
+
+
+
+
+.main-logo{
+    padding-bottom: 4rem;
+}
+
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+.campo__label{
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+
+.campo__input{
+    border: 2.3px solid var(--gris);
+    background-color: var(--gris);
+    padding: 1.2rem 0;
+    width: 100%;
+    border-radius: 10rem;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    margin-bottom: 3rem ;
+
+
+}
+
+
+.campo__input:focus{
+    border-color: var(--morado);
+    font-size: 1.8rem;
+}
+
+
+.boton{
+    font-weight: 700;
+    border: none;
+    background-color: var(--moradoOscuro);
+    color: var(--blanco);
+    padding: 1.3rem;
+    border-radius: 50rem;
+    width: 90%;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+
+}
+
+
+.boton:hover{
+    background-color: var(--morado);
+}
+
+
+/* ----------------------- KAREN DANIELA PARRA QUINTERO -------------------------------- */
+
+/*MESERO*/
+
+
+.nav{
+    background-color: var(--moradoClaro);
+    padding: 1rem 0;
+}
+
+
+.nav__contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+@media (min-width: 768px) {
+
+
+    .nav__contenedor{  
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+
+
+
+
+
+.nav__usuario,.sesion__titulo{
+    color: var(--moradoOscuro);
+}
+
+
+.nav__boton{
+    background-color: var(--moradoOscuro);
+    color: var(--blanco);
+    font-weight: 700;
+    padding: 1rem  6rem;
+    border-radius: 50rem;
+    transition: background-color 0.3s ease ;
+}
+
+
+.nav__boton:hover{
+    background-color: var(--morado);
+}
+
+
+.sesion{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+
+
+    .ordenes{
+        background-image: linear-gradient(to left, transparent 50%, var(--moradoClaro) 50%, var(--moradoClaro) 100%);
+        height: 100%;
+    }
+
+
+    .contenedor__ordenes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 6rem;
+    }
+
+
+    .ordenes__grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+       
+    }
+   
+}
+
+
+@media (max-width: 767px) {
+    .ordenes__grid{
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
+
+
+.ordenes{
+    overflow: hidden;
+}
+
+
+.ordenes__cerradas,.ordenes__abiertas{
+    margin: 3rem 0;
+}
+
+
+.ordenes__cerradas__titulo,.ordenes__abiertas__titulo{
+    text-transform: uppercase;
+    color: var(--moradoOscuro);
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+
+
+
+
+
+/* ----------------------- KAREN DANIELA, JUAN FELIPE -------------------------------- */
+
+
+/*orden card*/
+.ordenes__card{
+    background-color: var(--gris);
+    border-radius: 2rem;
+}
+
+
+.ordenes__orden,.ordenes__mesa,.ordenes__estado{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    margin: 0;
+}
+
+
+
+
+.ordenes__descipcion{
+    padding: 0 2rem;
+   
+}
+
+
+.ordenes__titulo{
+    color: var(--moradoOscuro);
+    text-transform:capitalize;
+    font-weight: 800;
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+}
+
+
+.ordenes__texto{
+    font-weight: 500;
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+}
+
+
+.ordenes__estado{
+    padding-bottom: 1.2rem;
+}
+
+/* ----------------------- TEMPLATE HEADER -------------------------------- */
+
+
+.header-template {
+    background-color: var(--moradoClaro);
+    padding: 2rem 0;
+}
+
+.titulo-template{
+    color: var(--negro);
+}
+
+.flex-contenedor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo img{
+    width: 20rem;
+}
+
+
+/* ----------------------- TEMPLATE FOOTER -------------------------------- */
+
+footer{
+    background-color: var(--moradoOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.copyright{
+    color:var(--blanco);
+    text-align: center;
+}
+
+
+/* ----------------------- index platos-------------------------------- */
+
+.Main{
+    margin:  4rem 0;
+}
+
+.titulo-main{
+    margin:  3rem 0;
+}
+
+/* ----------------------- formulario platos-------------------------------- */
+
+.formulario{
+    max-width: 50%;
+    margin-top: 5rem;
+    margin-bottom: 6rem;
+}
+
+.textarea {
+    height: 20rem;
+    border-radius: 3rem;
+}
+
+legend{
+    margin-bottom: 2rem;
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+label{
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.crear-plato{
+    width: 100%;
+}
+
+
+/* ----------------------- alerta y error -------------------------------- */
+
+.alerta{
+    max-width: 50%;
+    padding: .5rem;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 auto ;
+    transition: opacity 0.5s ease-out;
+    
+
+}
+
+.error{
+    background-color: #920303;
+    color: var(--blanco);
+    margin-top: 1rem;
+}
+
+.exito{
+    background-color: var(--verde);
+    color: var(--blanco);
+    margin-top: 1rem;
+}
+
+
+/* ----------------------- Tabla menu -------------------------------- */
+.menu{
+    margin-top: 6rem;
+}
+
+table .menu{   
+    width: 80%;
+    border-spacing: 0;
+}
+
+thead{
+    background-color: var(--morado);
+}
+
+th{
+    color: var(--blanco);
+    padding: 2rem;
+}
+
+td{
+    font-weight: 500;
+    text-align: center;
+}
+
+.boton-accion{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.boton-eliminar{
+    background-color: #920303;
+}
+
+.boton-actualizar{
+    background-color: var(--verde);
+}
+
+.boton-actualizar:hover{
+    background-color:#03b438;
+}
+
+.boton-eliminar:hover{
+    background-color: #ca0202;
+}
+
+
+/* ----------------------- formlario orden -------------------------------- */
+
+.boton-elimina{
+    margin-bottom: 3rem;
+    background-color: #920303;
+}
+
+.boton-elimina:hover{
+    background-color: #be0404;
+}
+
+.boton-agrega{
+    background-color: #00942C;
+    margin-bottom: 3rem;
+}
+
+.boton-agrega:hover{
+    background-color: #03b438;
+}
+
+
+/* ----------------------- Tabla orden -------------------------------- */
+
+.tabla-tr{
+    margin-bottom: 2rem;
+
+}
+.boton-ver{
+    display: block;
+    width: 90%;
+    background-color: #00942C;
+}
+
+.boton-ver:hover{
+    
+    background-color: #01661f;
+}
+
+.tobdy-form{
+    padding: 1rem 0;
+}
+
+
+/* ----------------------- Tabla orden detalle-------------------------------- */
+
+.tabla-orden{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.obton-orden{
+    margin-bottom: 5rem;
+}
