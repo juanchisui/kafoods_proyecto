@@ -1,0 +1,99 @@
+
+  _  __        __                   _      
+ | |/ /       / _|                 | |     
+ | ' /______ | |_  ___    ___    __| | ___ 
+ |  <|______||  _|/ _ \  / _ \  / _` |/ __|
+ | . \       | | | (_) || (_) || (_| |\__ \
+ |_|\_\      |_|  \___/  \___/  \__,_||___/
+                                           
+                                           
+# BIENVENIDOS A K-FOODS
+
+Sistema de gestión de comandas desarrollado en PHP y MySQL. 
+Este proyecto permite la administración de órdenes, platos y 
+pensado para restaurantes o cafeterías.(PROYECTO SENA)
+
+---
+
+## ✅ Requisitos para instalarlo localmente
+
+- [Laragon](https://laragon.org/) (como entorno de servidor local)
+- [HeidiSQL](https://www.heidisql.com/) (como cliente de base de datos)
+- Navegador web (Chrome, Firefox, Edge, etc.)
+
+---
+
+## 🧩 Instalación paso a paso (modo local con Laragon y HeidiSQL)
+
+### 🔽 1. Clonar o descargar el proyecto
+
+#### Opción A: Usar Git
+```bash
+git clone https://github.com/juanchisui/kafoods_proyecto.git
+
+
+### 🔽 2. Levantar Laragon
+
+-Abre Laragon.
+
+-Asegúrate de que los servicios estén activos:
+Apache/Nginx
+MySQL
+
+
+### 🔽 3. Mover la carpeta
+
+-Extrae la carpeta y muévela a:
+C:\laragon\www\
+
+-Quedará algo como:
+C:\laragon\www\kafoods_proyecto\
+
+
+### 🔽 4. Crear la base de datos con HeidiSQL
+ 
+-Abre HeidiSQL.
+
+-al servidor localhost (usuario: root, contraseña vacía por defecto).
+
+-Haz clic derecho y selecciona "Crear nueva > Base de datos".
+
+-Nombra la base de datos: kfoods
+
+
+### 🔽 5. Crear la base de datos con HeidiSQL
+
+
+-Selecciona la base de datos kfoods en HeidiSQL.
+
+-Menú superior > Archivo > Ejecutar archivo SQL
+
+-Selecciona el archivo:
+C:\laragon\www\kafoods_proyecto\db\kafoods.sql
+
+### 🔽 6. Configurar conexión a la base de datos
+
+-Verifica que el archivo database.php  tenga lo siguiente:
+
+    <?php
+
+    function conectarBD(): mysqli{
+        $db = mysqli_connect('localhost','root','contraseña','kfoods');
+
+        if(!$db){
+            echo 'No se puedo conecta la base de datos';
+            exit;
+        }
+
+        return $db;
+    } 
+
+*** Si tienes contraseña configurada en Laragon para MySQL, reemplázala ahí.
+
+
+### 🔽 7. Probar el sistema
+
+http://localhost/kafoods_proyecto/admin/index.php
+
+
+********Desarrollado por Karen quintero y Juan Felipe Sena 2025**********
