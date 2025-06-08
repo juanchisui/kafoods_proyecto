@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+//echo"<pre>";
+//var_dump($_SESSION);
+//echo"</pre>";
+
+$auth = $_SESSION = ['index'];
+
+if(!$auth){
+    header('Location: /index');
+}
 //VAMOS A MOSTAR LOS PLATOS INGRESADOS EN LA BASE DATOS EN EL MENU
 //COMIENZA AQUI CONSULTANDO LA BASE DE DATOS
 
@@ -54,6 +65,8 @@ incluirTemplate ('header');
 
         <a href="/admin/platos/crear.php" class='boton boton-plato'>Agregar plato</a>
         <a href="/admin/ordenes/index.php" class='boton boton-plato'>Ordenes</a>
+
+        <a href="cerrar_sesion.php" class='boton boton-plato'>Cerrar sesion</a>
 
     </div>
 

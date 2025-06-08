@@ -1,3 +1,70 @@
+<?php
+    //importar la conexion
+    require "includes/config/database.php";
+    $db= conectarBD();
+
+    $errores = [];
+
+    //autenticar usuario
+    if($_SERVER['REQUEST_METHOD'] === 'POST' ){
+      
+        $usuario = mysqli_real_escape_string($db,$_POST['usuario'] );
+        $clave = mysqli_real_escape_string($db,$_POST['clave']) ;
+
+        if(!$usuario){
+            $errores[]= 'él correo no es valido';
+        }
+
+         if(!$clave){
+            $errores[]= 'la clave no es valida';
+        }
+
+        if(empty($errores)){
+            //revisar si usuario existe
+            $query = "SELECT * FROM usuarios WHERE usuario='{$usuario}'";
+            $resultado= mysqli_query($db,$query);
+
+            
+
+            if($resultado -> num_rows){
+                //verificar la clave
+                $usuario = mysqli_fetch_assoc($resultado);
+
+                //vericiar su la clave correcta
+                $auth = password_verify($clave,$usuario['clave']);
+
+
+                if($auth){
+                    //vericiar su la clave correcta
+                    session_start();
+
+                    //llenar arreglo de la sesion
+                    $_SESSION['usuario'] = $usuario['usuario'];
+                    $_SESSION['index'] = true;
+
+                    header('Location: /admin');
+
+                
+                }else{
+                    $errores[] = 'la clave es incorrecta';
+                }
+
+            }else{
+                //verificar si el usuario existe
+                $errores[]='El usuario no existe';
+            }
+        }
+
+
+
+    }
+
+       
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,29 +87,30 @@
 
 
             <div class="main-login">
-            <img class="main-logo" src="img/Logo.svg" alt="">
+                <img class="main-logo" src="img/Logo.svg" alt="">
+                <?php foreach($errores as $error):?>
+                    <div class="alerta error">
+                        <?php echo $error; ?>
+                    </div>
+
+                <?php endforeach;?>
+
+                <form action="" method="POST">
+                    <div class="campo">
+                        <label class="campo__label" for="text">Usuario</label>
+                        <input class="campo__input" type="text" name="usuario" placeholder="Ingresa usuario" id="text" require>
+                    </div>
 
 
-                <form action="mesero.html">
-                <div class="campo">
-                    <label class="campo__label" for="usuario">Usuario</label>
+                    <div class="campo">
+                        <label class="campo__label" for="clave">Clave</label>
+                        <input class="campo__input" type="password" name="clave" placeholder="Ingresa la clave" id="clave" require>
+                    </div>
 
 
-                    <input class="campo__input" type="text" name="" placeholder="Ingresa el usuario" id="usuario" required>
-                </div>
-
-
-                <div class="campo">
-                    <label class="campo__label" for="clave">Clave</label>
-
-
-                    <input class="campo__input" type="password" name="" placeholder="Ingresa la clave" id="clave" required>
-                </div>
-
-
-                <div class="campo">
-                    <input class="boton" type="submit" name="Iniciar Sesion" id="" value="Iniciar sesion">
-                </div>
+                    <div class="campo">
+                        <input class="boton" type="submit"  id="" value="Iniciar sesion">
+                    </div>
                 </form>
             </div>
 

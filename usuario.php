@@ -6,13 +6,13 @@ $db= conectarBD();
 
 
 //email y usuario
-$email = 'correo@correo.com';
+$usuario = 'admin';
 $clave = "123456";
 
 $claveHash= password_hash($clave, PASSWORD_DEFAULT);
 
 //quey para crear el usuario
-$query ="INSERT INTO usuarios(email,clave) VALUES ('{$email}','{$claveHash}');" ;
+$query ="INSERT INTO usuarios(usuario,clave) VALUES ('{$usuario}','{$claveHash}');" ;
 echo $query;
 
 
