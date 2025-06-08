@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-//echo"<pre>";
-//var_dump($_SESSION);
-//echo"</pre>";
-
-$auth = $_SESSION = ['index'];
+$auth = $_SESSION['index'] ?? null;
 
 if(!$auth){
     header('Location: /index');
+    exit;
 }
 //VAMOS A MOSTAR LOS PLATOS INGRESADOS EN LA BASE DATOS EN EL MENU
 //COMIENZA AQUI CONSULTANDO LA BASE DE DATOS
@@ -55,18 +52,25 @@ incluirTemplate ('header');
 
 
 <main class="Main contenedor">
-    <div class="contenedor">
-        <h1 class="titulo-main">Menu kfoods</h1>
-        <?php if(intval($resultado) ===1): ?>
+         <?php if(intval($resultado) ===1): ?>
             <p class="alerta exito" id="alerta-exito">Plato Agregado correctamente</p>
-        <?php elseif(intval($resultado) ===2): ?>
+            <?php elseif(intval($resultado) ===2): ?>
             <p class="alerta exito" id="alerta-exito">Plato Actualizado Correctamente</p>
-        <?php endif; ?>
+            <?php endif; ?>
+    <div class="contenedor flex">
+           
+        <div>
+            <h1 class="titulo-main">Menu kfoods</h1>
 
-        <a href="/admin/platos/crear.php" class='boton boton-plato'>Agregar plato</a>
-        <a href="/admin/ordenes/index.php" class='boton boton-plato'>Ordenes</a>
+            <a href="/admin/platos/crear.php" class='boton boton-plato'>Agregar plato</a>
+            <a href="/admin/ordenes/index.php" class='boton boton-plato'>Ordenes</a>
 
-        <a href="cerrar_sesion.php" class='boton boton-plato'>Cerrar sesion</a>
+            </div>
+        
+        <div>
+            <a href="cerrar_sesion.php" class='boton boton-plato'>Cerrar sesion</a>
+        </div>
+        
 
     </div>
 

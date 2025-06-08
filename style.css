@@ -397,6 +397,12 @@ footer{
 
 /* ----------------------- index platos-------------------------------- */
 
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 .Main{
     margin:  4rem 0;
 }
