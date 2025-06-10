@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectOriginal = document.querySelector('.grupo-plato select[name="plato[]"]');
     const optionsTemplate = selectOriginal.innerHTML;
 
-    // 3. Función para mostrar descripción (mejorada)
+    // 3. Función para mostrar descripción 
     function mostrarDescripcion(selectElement) {
         const selectedOption = selectElement.selectedOptions[0];
         if (!selectedOption) return;
