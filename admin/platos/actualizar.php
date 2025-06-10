@@ -97,12 +97,7 @@
         <label for="precio">Precio:</label>
         <input type="number" id="precio" name="precio" class="campo__input" value=<?php echo $precio; ?>>
 
-        <legend>Mesero</legend>
-
-        <select name="mesero" id="" class="campo__input">
-            <option value="1">juan riveros</option>
-            <option value="2">Karen quintero</option>
-        </select>
+        
 
         <input type='submit' value="Actualizar plato" class="boton crear-plato">
 

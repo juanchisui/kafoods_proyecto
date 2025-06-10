@@ -12,11 +12,11 @@
         $clave = mysqli_real_escape_string($db,$_POST['clave']) ;
 
         if(!$usuario){
-            $errores[]= 'él correo no es valido';
+            $errores[]= 'usuario es obligatorio';
         }
 
          if(!$clave){
-            $errores[]= 'la clave no es valida';
+            $errores[]= 'la clave es obligatoria';
         }
 
         if(empty($errores)){
