@@ -30,7 +30,7 @@
                 //verificar la clave
                 $usuario = mysqli_fetch_assoc($resultado);
 
-                //vericiar su la clave correcta
+                
                 $auth = password_verify($clave,$usuario['clave']);
 
 
